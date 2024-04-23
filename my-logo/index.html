@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<div id="container"></div>
+<script src="node_modules/d3/dist/d3.js"></script>
+<script type="module">
+
+// Declare the chart dimensions and margins.
+const width = 640;
+const height = 400;
+const marginTop = 20;
+const marginRight = 20;
+const marginBottom = 30;
+const marginLeft = 40;
+
+const line = d3.line()
+    .x((d) => x(d.date))
+    .y((d) => y(d.value));
+
+const context = d3.select("#container").node().getContext("2d")
+const data = [
+  {day: 25,  rank: 175},
+  {day: 50,  rank: 152.5},
+  {day: 75,  rank: 85},
+  {day: 100, rank: 115},
+  {day: 125, rank: 47.5},
+  {day: 150, rank: 62.5},
+  {day: 175, rank: 25}];
+
+line.context(context)(data);
+
+</script>
